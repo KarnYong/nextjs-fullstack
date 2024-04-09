@@ -1,5 +1,5 @@
 export async function getData() {
-  const res = await fetch('http://localhost:3000/attractions/api')
+  const res = await fetch(`${process.env.API_URL}/attractions/api`)
   if (!res.ok) {
     throw new Error('Failed to fetch data')
   }
