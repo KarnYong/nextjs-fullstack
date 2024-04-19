@@ -4,7 +4,7 @@ import {
 } from '@mui/material'
 
 export async function getData() {
-  const res = await fetch(`${process.env.API_URL}/attractions/api`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/attractions/api`)
   if (!res.ok) {
     throw new Error('Failed to fetch data')
   }
@@ -12,7 +12,7 @@ export async function getData() {
 }
 
 export default async function page() {
-  if (!process.env.API_URL) {
+  if (!process.env.NEXT_PUBLIC_API_URL) {
     return null
   }
   const data = await getData()
