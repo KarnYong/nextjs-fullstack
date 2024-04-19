@@ -1,4 +1,5 @@
 import './attractions.css'
+import Link from 'next/link'
 import { 
   AppBar, Box, Toolbar, Typography, Button, IconButton, Container
 } from '@mui/material';
@@ -21,9 +22,11 @@ export default function layout({
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Travel App
-            </Typography>
+              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                <Link href="/attractions" style={{ textDecoration: 'none', color: 'white' }}>
+                    Travel App
+                </Link>
+              </Typography>
             <Button color="inherit">Login</Button>
           </Toolbar>
         </AppBar>
