@@ -2,6 +2,9 @@ import React from 'react'
 import { getData } from './data'
 
 export default async function page({ params }) {
+  if (!process.env.NEXT_PUBLIC_API_URL) {
+    return null
+  }
   const id = params.id
   const data = await getData(id)
   console.log(data.length)

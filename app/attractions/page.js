@@ -7,6 +7,9 @@ import {
 
 
 export default async function page() {
+  if (!process.env.NEXT_PUBLIC_API_URL) {
+    return null
+  }
   const data = await getData()
   return (
     <div>
