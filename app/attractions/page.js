@@ -1,13 +1,18 @@
 import React from 'react'
-import { getData } from './data'
 import { 
-  Card, CardActions, CardContent, CardMedia, 
-  Button, Typography, Grid 
+  Card, CardActions, CardContent, CardMedia, Button, Typography, Grid 
 } from '@mui/material'
 
+export async function getData() {
+  const res = await fetch(`${process.env.API_URL}/attractions/api`)
+  if (!res.ok) {
+    throw new Error('Failed to fetch data')
+  }
+  return res.json()
+}
 
 export default async function page() {
-  if (!process.env.NEXT_PUBLIC_API_URL) {
+  if (!process.env.API_URL) {
     return null
   }
   const data = await getData()
